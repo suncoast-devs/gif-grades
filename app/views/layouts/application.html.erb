@@ -13,12 +13,10 @@
     <header>
       <h1>Gif Grades</h1>
       <% if current_user %>
-        <p><%= current_user.email %></p>
-        <%= form_tag sessions_path, method: 'delete' do %>
-          <button type="submit">Logout</button>
-        <% end  %>
+        <p><%= current_user.name %></p>
+        <p><%= link_to 'Sign Out', sign_out_path %></p>
       <% else %>
-        <p><%= link_to 'Login', sessions_path %></p>
+        <p><%= link_to 'Sign In', sign_in_path %></p>
       <% end %>
     </header>
     <p id="notice"><%= notice %></p>

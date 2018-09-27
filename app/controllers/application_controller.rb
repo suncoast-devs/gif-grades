@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     unless current_user
-      redirect_to sessions_path, notice: "Please, authenticate first."
+      redirect_to sign_in_path
     end
   end
 
