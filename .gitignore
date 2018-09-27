@@ -1,10 +1,6 @@
-/.bundle
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
-/storage/*
-!/storage/.keep
+/log
+/tmp
+/storage
 /public/assets
-.byebug_history
 /config/master.key
+.byebug_history
