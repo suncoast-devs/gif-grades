@@ -1,0 +1,31 @@
+<h1>Venerations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>User</th>
+      <th>Caption</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venerations.each do |veneration| %>
+      <tr>
+        <td><%= image_tag(veneration.image.variant(resize: '100x100')) if veneration.image.attached? %></td>
+        <td><%= veneration.user.email %></td>
+        <td><%= veneration.caption %></td>
+        <td><%= veneration.score %></td>
+        <td><%= link_to 'Show', veneration %></td>
+        <td><%= link_to 'Edit', edit_veneration_path(veneration) if veneration.user == current_user %></td>
+        <td><%= link_to 'Destroy', veneration, method: :delete, data: { confirm: 'Are you sure?' } if veneration.user == current_user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Veneration', new_veneration_path %>

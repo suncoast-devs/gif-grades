@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GifGrades</title>
+    <title>Gif Grades</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,18 @@
   </head>
 
   <body>
+    <header>
+      <h1>Gif Grades</h1>
+      <% if current_user %>
+        <p><%= current_user.email %></p>
+        <%= form_tag sessions_path, method: 'delete' do %>
+          <button type="submit">Logout</button>
+        <% end  %>
+      <% else %>
+        <p><%= link_to 'Login', sessions_path %></p>
+      <% end %>
+    </header>
+    <p id="notice"><%= notice %></p>
     <%= yield %>
   </body>
 </html>
