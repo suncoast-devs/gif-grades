@@ -1,5 +1,5 @@
 class VenerationsController < ApplicationController
-  before_action :set_own_veneration, only: [:show, :edit, :update, :destroy]
+  before_action :set_own_veneration, only: [:edit, :update, :destroy]
   before_action :authenticate!, except: [:index, :show]
 
   # GET /venerations
@@ -12,6 +12,7 @@ class VenerationsController < ApplicationController
 
   # GET /venerations/1
   def show
+    @veneration = Veneration.find(params[:id])
   end
 
   # GET /venerations/new
