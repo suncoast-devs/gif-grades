@@ -39,9 +39,11 @@
                 <a class="navbar-item" href="/venerations">
                   All
                 </a>
+                <% if current_user %>
                 <a class="navbar-item" href="/venerations?own=true">
                   Mine
                 </a>
+                <% end %>
                 <a class="navbar-item" href="/venerations/new">
                   Upload
                 </a>
