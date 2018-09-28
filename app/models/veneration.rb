@@ -11,5 +11,5 @@ class Veneration < ApplicationRecord
   validates :image, presence: true
   validates :score, presence: true
   validates :caption, presence: true
-  paginates_per 1
+  paginates_per 20
 end

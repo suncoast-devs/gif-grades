@@ -4,7 +4,10 @@ class VenerationsController < ApplicationController
 
   # GET /venerations
   def index
-    @venerations = Veneration.page params[:page]
+    scope = params[:own] ? current_user.venerations : Veneration.where(nil)
+    scope = scope.where(score: params[:score]) if params[:score]
+
+    @venerations = scope.page params[:page]
   end
 
   # GET /venerations/1
