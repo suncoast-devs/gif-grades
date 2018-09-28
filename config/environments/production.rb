@@ -5,7 +5,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.require_master_key = true
   config.public_file_server.enabled = false
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(:harmony => true)
   config.assets.css_compressor = :sass
   config.assets.compile = false
   config.active_storage.service = :amazon
