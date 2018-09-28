@@ -4,8 +4,7 @@ class VenerationsController < ApplicationController
 
   # GET /venerations
   def index
-    @current_user = current_user
-    @venerations = Veneration.all
+    @venerations = Veneration.page params[:page]
   end
 
   # GET /venerations/1

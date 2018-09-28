@@ -1,0 +1,33 @@
+.veneration.card {
+  .author {
+    text-align: center;
+    strong {
+      white-space: nowrap;
+    }
+  }
+  margin-bottom: 1rem;
+}
+
+.tag.score {
+  &.unacceptable {
+    background-color: #9a1814;
+  }
+  &.needs_improvement {
+    background-color: #d59f26;
+  }
+  &.acceptable {
+    background-color: #54a3b9;
+  }
+  &.meets_expectations {
+    background-color: #32bd8f;
+  }
+  &.exceeds_expectations {
+    background-color: #52a70f;
+  }
+}
+
+table.venerations {
+  td {
+    vertical-align: middle;
+  }
+}

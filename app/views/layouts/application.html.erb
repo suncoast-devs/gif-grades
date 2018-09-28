@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Gif Grades</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,16 +11,100 @@
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
   </head>
   <body>
-    <header>
-      <h1>Gif Grades</h1>
-      <% if current_user %>
-        <p><%= current_user.name %></p>
-        <p><%= link_to 'Sign Out', sign_out_path %></p>
-      <% else %>
-        <p><%= link_to 'Sign In', sign_in_path %></p>
-      <% end %>
-    </header>
-    <p id="notice"><%= notice %></p>
-    <%= yield %>
+    <nav class="navbar is-transparent">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="/" class="navbar-item">
+            <%= image_tag 'icon.svg', size: '28x28' %>
+          </a>
+          <a href="/" class="navbar-item">
+            <strong>SDG Gifs</strong>
+          </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="/">
+              Home
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link" href="/venerations">
+                Venerations
+              </a>
+              <div class="navbar-dropdown is-boxed">
+                <a class="navbar-item" href="/venerations">
+                  All
+                </a>
+                <a class="navbar-item" href="/venerations?own=true">
+                  Mine
+                </a>
+                <a class="navbar-item" href="/venerations/new">
+                  Upload
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <% if current_user %>
+                  <a class="button is-primary" href="/sign_out">
+                    <span class="icon">
+                      <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    <span>Sign Out</span>
+                  </a>
+                  <% else %>
+                  <a class="button is-primary" href="/sign_in">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Sign In</span>
+                  </a>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <% if notice %>
+    <section class="section">
+      <div class="container">
+        <div class="notification is-primary">
+          <%= notice %>
+        </div>
+      </div>
+    </section>
+    <% end %>
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <a class="has-text-grey-dark" href="https://github.io/suncoast-devs/gif-grades">
+        <span class="icon is-large">
+          <i class="fab fa-github fa-lg"></i>
+        </span>
+      </a>
+    </p>
+    <p>
+      <strong>Grade Gifs</strong> by <a href="https://suncoast.io">Suncoast Developers Guild</a>. The source code is licensed
+      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+      <br />
+      Made with <span class="icon">
+      <i class="fas fa-heart has-text-danger"></i>
+    </span> in St. Petersburg, FL.</p>
+  </div>
+</footer>

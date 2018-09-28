@@ -74,6 +74,18 @@ GEM
       concurrent-ruby (~> 1.0)
     jmespath (1.4.0)
     jwt (1.5.6)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -185,6 +197,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   byebug
+  kaminari
   listen
   mini_magick
   omniauth

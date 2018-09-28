@@ -1,24 +1,21 @@
-<p>
-  <strong>User:</strong>
-  <%= @veneration.user.email %>
-</p>
+<%= render partial: 'shared/veneration', object: @veneration %>
 
-<p>
-  <strong>Caption:</strong>
-  <%= @veneration.caption %>
-</p>
-
-<p>
-  <strong>Score:</strong>
-  <%= @veneration.score %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @veneration.image %>
-</p>
-
-<% if @veneration.user == current_user %>
-<%= link_to 'Edit', edit_veneration_path(@veneration) %> |
-<% end %>
-<%= link_to 'Back', venerations_path %>
+<nav class="level">
+  <div class="level-left">
+    <p class="level-item">
+      <%= link_to 'Back', venerations_path, class: 'button' %>
+    </p>
+  </div>
+  <div class="level-right">
+    <% if @veneration.user == current_user %>
+    <p class="level-item">
+      <%= link_to edit_veneration_path(@veneration), class: 'button is-primary' do %>
+        <span class="icon">
+          <i class="fas fa-edit"></i>
+        </span>
+        <span>Edit</span>
+      <% end %>
+    </p>
+    <% end %>
+  </div>
+</nav>

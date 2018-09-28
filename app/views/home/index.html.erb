@@ -1,0 +1,28 @@
+<div class="columns">
+  <div class="column">
+    <h1 class="title">Recent Uploads</h1>
+    <%= render partial: "shared/veneration", collection: @recent %>
+  </div>
+  <div class="column">
+    <h1 class="title">Random Uploads</h1>
+    <%= render partial: "shared/veneration", collection: @random %>
+  </div>
+</div>
+
+<section class="section">
+  <div class="level">
+    <div class="level-item has-text-centered">
+      <h1 class="title">Stats</h1>
+    </div>
+  </div>
+  <nav class="level">
+    <% Veneration.scores.keys.each do |score| %>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading"><%= score_tag score %></p>
+        <p class="title"><%= @counts[score] %></p>
+      </div>
+    </div>
+    <% end %>
+  </nav>
+</section>

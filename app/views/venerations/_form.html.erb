@@ -1,32 +1,56 @@
 <%= form_with(model: veneration, local: true) do |form| %>
   <% if veneration.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(veneration.errors.count, "error") %> prohibited this veneration from being saved:</h2>
-
-      <ul>
-      <% veneration.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="notification is-warning">
+        <ul>
+        <% veneration.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_area :caption %>
+    <%= form.label :image, class: 'label' %>
+    <div class="control">
+      <div class="file is-boxed">
+        <label class="file-label">
+          <%= form.file_field :image, class: 'file-input' %>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a file…
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+
   </div>
 
   <div class="field">
-    <%= form.label :score %>
-    <%= form.number_field :score %>
+    <%= form.label :caption, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :caption, class: 'textarea', placeholder: "A caption to include with the image/animation." %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.label :score, class: 'label' %>
+    <div class="control">
+      <div class="select">
+        <%= form.select :score, Veneration.scores.keys.reverse.map { |w| [w.titleize, w] } %>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit class: 'button is-primary' %>
+    </div>
+    <div class="control">
+      <%= link_to 'Cancel', veneration, class: 'button is-text' %>
+    </div>
   </div>
 <% end %>

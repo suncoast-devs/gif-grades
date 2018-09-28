@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
 
 gem 'aws-sdk-s3'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-github'
