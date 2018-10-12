@@ -5,6 +5,7 @@ class GifsController < ApplicationController
       contributor: @veneration.user.name,
       caption: @veneration.caption,
       image: url_for(@veneration.image),
+      url: url_for(@veneration)
     }
   end
 end
