@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'rack-cors'
+gem 'active_storage_validations', '~> 0.8'
 
 group :development, :test do
   gem 'byebug'
